@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Categoria {
 	
 	@Id
-	@NotEmpty
+	@NotEmpty(message = "Categoria não pode estar vazio")
 	private String id;
 	
 	private String nombre;

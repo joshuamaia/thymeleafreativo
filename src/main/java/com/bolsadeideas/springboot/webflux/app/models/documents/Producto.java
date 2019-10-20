@@ -16,10 +16,10 @@ public class Producto {
 	@Id
 	private String id;
 	
-	@NotEmpty
+	@NotEmpty(message = "Nombre não pode estar vazio")
 	private String nombre;
 	
-	@NotNull
+	@NotNull(message = "Precio não pode ser nulo")
 	private Double precio;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

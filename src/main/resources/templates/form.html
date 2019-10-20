@@ -28,25 +28,28 @@
 						<input type="text" class="form-control"
 							aria-label="Exemplo do tamanho do input"
 							aria-describedby="inputGroup-sizing-default" th:field="*{nombre}">
-						<small th:if="${#fields.hasErrors('nombre')}"
-							th:errors="*{nombre}"></small>
+					</div>
+					<div th:if="${#fields.hasErrors('nombre')}"
+						class="alert alert-danger" role="alert">
+						<small th:errors="*{nombre}">Nombre </small>
 					</div>
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
 							<span class="input-group-text" id="inputGroup-sizing-default">Precio</span>
 						</div>
-						<input type="text" class="form-control"
+						<input type="number" class="form-control"
 							aria-label="Exemplo do tamanho do input"
 							aria-describedby="inputGroup-sizing-default" th:field="*{precio}">
-						<small th:if="${#fields.hasErrors('precio')}"
-							th:errors="*{precio}"></small>
 					</div>
-
+					<div th:if="${#fields.hasErrors('precio')}"
+						class="alert alert-danger" role="alert">
+						<small th:errors="*{precio}">Precio </small>
+					</div>
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
 							<span class="input-group-text" id="inputGroup-sizing-default">Fecha</span>
 						</div>
-						<input type="text" class="form-control"
+						<input type="date" class="form-control"
 							aria-label="Exemplo do tamanho do input"
 							aria-describedby="inputGroup-sizing-default"
 							th:field="*{createAt}">
@@ -60,10 +63,14 @@
 							<option value="">-- seleccionar --</option>
 							<option th:each="categoria: ${categorias}"
 								th:value="${categoria.id}" th:text="${categoria.nombre}"></option>
-						</select> <small th:if="${#fields.hasErrors('categoria.id')}"
-							th:errors="*{categoria.id}"></small>
+						</select>
 					</div>
-					<div class="input-group mb-3" style="display: flex; align-items: center;">
+					<div th:if="${#fields.hasErrors('categoria.id')}"
+						class="alert alert-danger" role="alert">
+						<small th:errors="*{categoria.id}"></small>
+					</div>
+					<div class="input-group mb-3"
+						style="display: flex; align-items: center;">
 						<div class="input-group-prepend">
 							<span class="input-group-text" id="inputGroup-sizing-default">Foto</span>
 						</div>
